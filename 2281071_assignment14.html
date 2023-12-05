@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Validation</title>
+</head>
+<body>
+    <h3 class="subheadertext">
+        Please input the form below
+    </h3>
+    <form action="submit_form.php" class="contactusform" method="method" name="form" id="form" onsubmit="return validFunction()">
+        <label id="fname" for="fname" class="formlabel" name="fname">
+            *Full Name:
+        </label>
+        <input class="forminput" type="text" id="fname" name="fname" placeholder="Your full name here">
+        <p style="min-height: 12px; margin: 8px 0 0 8px;"></p>
+
+        <label class="formlabel" for="email" id="email">
+            *Email:
+        </label>
+        <!--Autocomplete is a browser feature that helps users by suggesting or completing text input 
+        based on their previous inputs or commonly used values. For example, when you start typing your email 
+        address in a login form, the browser may suggest a previously used email address to speed up the process.-->
+        <input autocomplete="email" class="forminput" id="email" name="email" placeholder="Your email" 
+        spellcheck="false" type="text">
+        <p style="min-height: 12px; margin: 8px 0 0 8px;"></p>
+        <label class="formlabel" for="username">
+            *Username
+        </label>
+        <input class="forminput" type="text" id="username" name="username" placeholder="Your username here">
+        <p style="min-height: 12px; margin: 8px 0 0 8px;"></p>
+
+        <label class="formlabel" for="password">
+            *Password
+        </label>
+        <input class="forminput" type="password" id="password" name="password" placeholder="Your password here">
+        <p style="min-height: 12px; margin: 8px 0 0 8px;"></p>
+
+        <label class="formlabel" for="gender">
+            *Gender
+        </label> <br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male </label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <br>
+        <p style="min-height: 12px; margin: 8px 0 0 8px;"></p>
+
+        <label for="religion" class="formlabel">
+            *Religion
+        </label> <br>
+        <select id="religion" name="religion" multiple class="formlabel"> 
+            <option value="" disabled selected>Please choose an option</option>
+            <option value="Christian">Christian</option>
+            <option value="Muslim">Muslim</option>
+            <option value="Buddhist">Buddhist</option>
+            <option value="Hindu">Hindu</option>
+            <option value="None">None</option>
+        </select>
+        <br>
+        <p style="min-height: 12px; margin: 8px 0 0 8px;"></p>
+
+        <label for="address" class="formlabel">
+            *Address
+        </label> <br>
+        <textarea id="address" name="address" rows="5" cols="50" class="formlabel"></textarea>
+        <br>
+        <p style="min-height: 12px; margin: 8px 0 0 8px;"></p>
+        <label for="hobbies" class="formlabel" name="hobbies">
+            *Hobbies
+        </label> <br>
+        <input type="checkbox" id="hobby1" name="hobby1" value="Futsal/Soccer" class="formlabel">
+        <label form="hobby1">Futsal/Soccer</label> 
+        <input type="checkbox" id="hobby2" name="hobby2" value="Basketball" class="formlabel">
+        <label form="hobby2">Basketball</label> <br>
+        <input type="checkbox" id="hobby3" name="hobby3" value="Swimming" class="formlabel">
+        <label form="hobby3">Swimming</label> 
+        <input type="checkbox" id="hobby4" name="hobby4" value="Drawing" class="formlabel">
+        <label form="hobby4">Drawing</label> <br>
+        <input type="checkbox" id="hobby5" name="hobby5" value="Cooking" class="formlabel">
+        <label form="hobby5">Cooking</label> 
+        <input type="checkbox" id="hobby6" name="hobby6" value="singing" class="formlabel">
+        <label form="hobby6">Singing</label> <br>
+        <p style="min-height: 12px; margin: 8px 0 0 8px;"></p>
+
+        <button class="formbuttonsubmit" type="submit" onclick="validFunction()">Submit</button>
+
+        
+    </form>
+    
+    <script>
+        function validFunction(){
+            let fullName = document.forms["form"]["fname"].value;
+            let email = document.forms["form"]["email"].value;
+            let username = document.forms["form"]["username"].value;
+            let password = document.forms["form"]["password"].value;
+            let gender = document.forms["form"]["gender"].value;
+            let religion = document.forms["form"]["religion"].value;
+            let address = document.forms["form"]["address"].value;
+            let hobbies = document.querySelectorAll('input[name^="hobby"]:checked');
+              
+            if(fullName === ""){
+                alert("Your name must be filled out");
+                return false;
+            }
+            if(email === ""){
+                alert("Your email must be filled out");
+                return false;
+            }
+            if(username === ""){
+                alert("Your username must be filled out");
+                return false;
+            }
+            if(password === ""){
+                alert("Your password must be filled out");
+                return false;
+            }
+            if(gender === ""){
+                alert("Your gender must be filled out");
+                return false;
+            }
+            if(religion === ""){
+                alert("Your religion must be filled out");
+                return false;
+            }
+            if(address === ""){
+                alert("Your address must be filled out");
+                return false;
+            }
+            if(hobbies.length === 0){
+                alert("Your hobbies must be filled out");
+                return false;
+            }
+        }
+
+        
+    </script>
+
+</body>
+</html>
